@@ -1,6 +1,6 @@
 GMAIL_USERNAME: Your_Username
 GMAIL_PASSWORD: Your_Password
-ADMIN_NAME: admin
-ADMIN_EMAIL: rich@embedtree.com
-ADMIN_PASSWORD: 3mb3dtree9
+admin_name: admin
+admin_name: morganric@gmail.com
+admin_password: changeme123
 ROLES: [admin, user, VIP]

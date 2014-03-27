@@ -8,7 +8,7 @@
         <br/>
         <%= link_to @feed.link, @feed.link  %>
          <p class="pull-right">
-          <%= link_to 'Edit', edit_feed_path(@feed) %>
+          <%= link_to 'Edit', edit_feed_path(@feed) %> | <%= link_to 'Delete', feed_path(@feed), method: :delete, confirm: "Are you sure?" %>
         </p>
     </section>  
  

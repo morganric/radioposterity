@@ -1,5 +1,8 @@
 class FeedsController < ApplicationController
+  # before_filter :authenticate_user!
+  before_action :verify_authorized, except: [:show, :index]
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
+
 
   require 'rss'
   include FeedsHelper
