@@ -1,0 +1,29 @@
+<h1>Latest</h1>
+
+
+<section class="clearfix row">
+
+  <section class="col-md-8" >
+    <ul>
+        <% @feeds.reverse.each do |feed| %>
+            <li>
+            <%# debugger %> 
+            <%= image_tag feed.image, width: '50px', :class => "pull-left img-circle", :style => "margin:5px;" %>
+            <h3><%= link_to feed.title, feed, method: :post %></h3>
+            <p><%= truncate(feed.description, length: 300) %></p>
+            <label class="label label-info" ><%= link_to feed.category, tag_path(:params => {:category => feed.category}) %></label>
+            </li>
+        <% end %>
+    </ul>
+    
+  </section>
+
+
+  <section class="col-md-4" >
+
+    
+    
+
+  </section>
+
+</section>

@@ -28,3 +28,14 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
 end
+
+gem 'angularjs-rails'
+gem 'json'
+gem 'debugger'
+gem 'jplayer-rails'
+gem 'google_dfp', :git => 'git://github.com/digineo/google_dfp.git'
+gem 'bootswatch-rails'
+
+group :development do
+gem 'pg'
+end

@@ -1,0 +1,28 @@
+# creative with fixed size
+skyscraper:
+  size: 120x600
+  unit: /10854922/bigsize
+
+# two possible creatives
+bigsize_billboard:
+  size: 728x90 900x250
+  unit: /10854922/billboard
+
+ # two possible creatives
+leaderboard:
+  size: 728x90
+  unit: /10854922/leaderboard
+
+# standard
+MPU:
+  size: 300x250
+  unit: /10854922/MPU
+
+# two possible creatives
+mega_phone:
+  size: 900x250
+  unit: /10854922/mega_phone
+
+# out of page slot (no size)
+oop:
+  unit: /10854922/oop

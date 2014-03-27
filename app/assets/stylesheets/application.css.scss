@@ -1,15 +1,83 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+// Example using 'Cerulean' bootswatch
+//
+// First import journal variables
+@import "bootswatch/cerulean/variables";
+
+// Then bootstrap itself
+@import "bootstrap";
+
+// Bootstrap body padding for fixed navbar
+body { padding-top: 60px; }
+
+// Responsive styles go here in case you want them
+/*@import "bootstrap-responsive";*/
+
+// And finally bootswatch style itself
+/*@import "bootswatch/cerulean/bootswatch";*/
+
+// Whatever application styles you have go last
+/*@import "base";*/
+@import "feeds";
+
+#leaderboard div.google-dfp, .mpu {
+	margin: 5px auto;
+}
+
+ul.shows, ul.feeds {
+	margin: 0px !important;
+	padding: 0px !important;
+}
+
+li {
+	list-style:none;
+}
+
+.navbar-inverse .navbar-inner {
+	background: black !important;
+}
+
+div.jp-audio {
+width: 100% !important;
+}
+
+.jp-current-time, .jp-duration {
+	padding: 5px 20px;
+}
+
+.jp-progress {
+	left: 150px !important;
+	width: 65% !important;
+}
+
+div.jp-audio div.jp-volume-bar {
+left: 82% !important;
+}
+
+a.jp-mute {
+	position: absolute !important;
+	right: 210px !important;
+	margin-right: 0px !important;
+}
+
+.jp-volume-bar, .a.jp-unmute {
+	width: 100px !important;
+}
+
+div.jp-audio a.jp-volume-max {
+	position: absolute !important;
+	right: 85px !important;
+	}
+
+.feed {
+	margin-bottom: 100px
+}	
+
+
+.label a {
+	color: white !important;
+}
+
+.label a:hover {
+	background-color: transparent;
+	color: white !important;
+}

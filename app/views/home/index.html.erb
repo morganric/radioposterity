@@ -1,6 +1,55 @@
-<h3>Home</h3>
-<% if !current_user.nil? and current_user.admin? %>
-  <% @users.each do |user| %>
-    <p>User: <%=link_to user.email, user %> Role: <%= user.role unless user.role.nil? %></p>
-  <% end %>
-<% end %>
+<%= link_to 'Add New Feed', new_feed_path, :class => "btn btn-default pull-right" %>
+
+<h1>Latest</h1>
+
+
+<section class="clearfix row">
+
+	<section class="col-md-8" >
+	<input ng-model="query" placeholder="Search feeds...">
+		<div ng-controller="PodcastListCtrl">
+	     <ul class="feeds">
+	      <li ng-repeat="feed in feeds | filter:query">
+	      	<h3>
+		      	<a href="/feeds/{{feed.id}}" data-method="post" class="" >
+		      		<img src="{{feed.image}}" width="50px" class="img-circle" >
+		      	</a>
+		      	<a href="/feeds/{{feed.id}}" data-method="post" class="" >
+		      	 {{feed.title }}
+		      	 </a>
+	      	 </h3>
+	        <p>{{ feed.description }}</p>
+	        <label class="label label-info" >
+	        	<a href="/category?category={{feed.category}}" class="" >{{ feed.category }}</a>
+        	</label>
+	      </li>
+	    </ul>
+	  </div>
+
+	</section>
+
+
+	<section class="col-md-8" >
+		
+		
+	</section>
+
+
+</section>
+
+
+<script type="text/javascript">
+  podcastApp.controller('PodcastListCtrl', function ($scope, $timeout) {
+
+  var podcasts = "<%=j @feeds.to_json.html_safe %>";
+  console.log(eval('{' + podcasts + '}'));
+
+  var data = eval('{' + podcasts + '}');
+  $scope.feeds = data;
+  $scope.letterLimit = 100;
+
+  });
+
+
+
+</script>
