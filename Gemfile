@@ -36,6 +36,6 @@ gem 'jplayer-rails'
 gem 'google_dfp', :git => 'git://github.com/digineo/google_dfp.git'
 gem 'bootswatch-rails'
 
-group :development do
+group :production do
 gem 'pg'
 end
