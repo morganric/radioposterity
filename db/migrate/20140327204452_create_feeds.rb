@@ -12,5 +12,6 @@ class CreateFeeds < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :feeds, :slug, unique: true
   end
 end

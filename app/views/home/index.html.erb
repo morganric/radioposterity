@@ -11,10 +11,10 @@
 	     <ul class="feeds">
 	      <li ng-repeat="feed in feeds | filter:query">
 	      	<h3>
-		      	<a href="/feeds/{{feed.id}}" data-method="post" class="" >
+		      	<a href="/feeds/{{feed.slug}}" data-method="post" class="" >
 		      		<img src="{{feed.image}}" width="50px" class="img-circle" >
 		      	</a>
-		      	<a href="/feeds/{{feed.id}}" data-method="post" class="" >
+		      	<a href="/feeds/{{feed.slug}}" data-method="post" class="" >
 		      	 {{feed.title }}
 		      	 </a>
 	      	 </h3>

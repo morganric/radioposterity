@@ -29,14 +29,15 @@ group :development do
   gem 'rb-inotify', :require=>false
 end
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
 gem 'angularjs-rails'
 gem 'json'
 gem 'debugger'
 gem 'jplayer-rails'
 gem 'google_dfp', :git => 'git://github.com/digineo/google_dfp.git'
 gem 'bootswatch-rails'
-
-group :production do
-gem 'pg'
-gem 'rails_12factor'
-end
+gem 'friendly_id', '~> 5.0.0'
