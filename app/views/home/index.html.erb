@@ -1,4 +1,6 @@
+<% if current_user && current_user.role == 'admin' %>
 <%= link_to 'Add New Feed', new_feed_path, :class => "btn btn-default pull-right" %>
+<% end %>
 
 <h1>Latest</h1>
 

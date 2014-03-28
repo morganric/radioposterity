@@ -1,6 +1,6 @@
-GMAIL_USERNAME: Your_Username
-GMAIL_PASSWORD: Your_Password
-admin_name: admin
-admin_name: morganric@gmail.com
+GMAIL_USERNAME: radioposterity@gmail.com
+GMAIL_PASSWORD: r4dioposterity
+admin_name: morganric
+admin_email: morganric@gmail.com
 admin_password: changeme123
 ROLES: [admin, user, VIP]

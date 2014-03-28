@@ -1,29 +1,51 @@
-class FeedPolicy
-  attr_reader :feed, :record
+# class FeedPolicy
+#   attr_reader :user, :feed
 
-  def initialize(user, record)
-    @user = user
-    @record = record
-  end
+#   def initialize(user, feed)
+#     @user = user
+#     @feed = feed
+#   end
 
-  def index
+#   def index
 
-  end
+#   end
 
-  def show
+#   def show
     
+#   end
+
+#   def new?
+#     user.admin?
+#   end
+
+#   def create?
+#     user.admin?
+#   end
+
+#   def update?
+#     user.admin?
+#   end
+
+#   def destroy?
+#     user.admin?
+#   end
+
+# end
+
+
+class FeedPolicy
+  attr_reader :user, :feed
+
+  def initialize(user, feed)
+    @user = user
+    @feed = feed
+  end
+
+  def new?
+    user.admin? or not feed.published?
   end
 
   def create?
-    @user.admin?
+    user.admin? or not feed.published?
   end
-
-  def update?
-    @user.admin?
-  end
-
-  def destroy?
-    @user.admin?
-  end
-
 end

@@ -1,6 +1,6 @@
 class FeedsController < ApplicationController
-  # before_filter :authenticate_user!
-  before_action :verify_authorized, except: [:show, :index]
+  before_filter :authenticate_user!, only: [:create, :new, :destroy]
+  # before_action :verify_authorized, only: [:show, :index, :new]
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
 
 
@@ -28,6 +28,7 @@ class FeedsController < ApplicationController
   # GET /feeds/new
   def new
     @feed = Feed.new
+    authorize @feed
   end
 
   # GET /feeds/1/edit
