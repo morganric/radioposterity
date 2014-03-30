@@ -17,17 +17,25 @@
         <label class="label label-info" ><%= link_to @feed.category, tag_path(:params => {:category => @feed.category}) %></label>
         </p>
     
-
-
-  <div ng-controller="PodcastFeedCtrl">
-     <ul class="shows">
-      <li ng-repeat="podcast in podcasts | filter:query">
-        <h3><button href="{{podcast.enclosure.url}}" data-title="{{podcast.title}}" class="play btn btn-primary jp-play" >
-        <i class="icon-white icon-play" ></i> Play</button> {{podcast.title }} <small>{{podcast.itunes_duration.content }}</small></h3>
-        <p><%#= strip_tags("{{podcast.description | limitTo:letterLimit }}" "...")  %></p>
-      </li>
-    </ul>
-  </div>
+        <div ng-controller="PodcastFeedCtrl">
+          <div class="accordion-group" ng-repeat="podcast in podcasts | filter:query">
+            <div class="accordion-heading">
+              <h3>
+              <button href="{{podcast.enclosure.url}}" data-title="{{podcast.title}}" class="play btn btn-primary jp-play" >
+                <i class="icon-white icon-play" ></i> Play</button>
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#{{$index}}">
+                {{podcast.title }}
+              </a>
+              <small>{{podcast.itunes_duration.content }}</small>
+              </h3>
+            </div>
+            <div id="{{$index}}" class="accordion-body collapse in">
+              <div class="accordion-inner" >
+                {{podcast.description }}
+              </div>
+            </div>
+          </div>
+        </div>
 
   </section>
   <section class='pull-right'>
@@ -88,6 +96,7 @@
 
 <script type="text/javascript">
 
+
   podcastApp.controller('PodcastFeedCtrl', function ($scope, $timeout) {
 
   var podcasts = "<%=j @items.to_json.html_safe %>";
@@ -100,6 +109,17 @@
   });
 
 $(document).ready(function(){
+
+  $(".collapse").collapse();
+
+  var descriptions = $(".accordion-inner");
+    console.log(descriptions);
+    console.log(descriptions[0]).innerHTML();
+  for ( var i = 0; i < descriptions.length; i++ ) {
+    // console.log(descriptions[0]);
+    // var html = descriptions[i].innerHTML();
+    // descriptions[i].html().text();
+  }
 
 
     $("#jquery_jplayer_1").jPlayer({

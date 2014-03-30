@@ -10,5 +10,5 @@ GMAIL_USERNAME: radioposterity@gmail.com
 GMAIL_PASSWORD: r4dioposterity
 ADMIN_NAME: radioposterity
 ADMIN_EMAIL: radioposterity@gmail.com
-ADMIN_PASSWORD: r4dioposterity
+ADMIN_PASSWORD: 	
 ROLES: [admin, user, VIP]
