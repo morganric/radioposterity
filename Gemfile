@@ -34,11 +34,17 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'therubyracer', :require => 'v8'
+gem "less-rails"
+# gem "twitter-bootstrap-rails"
 gem 'angularjs-rails'
 gem 'json'
 gem 'debugger'
 gem 'jplayer-rails'
 gem 'google_dfp', :git => 'git://github.com/digineo/google_dfp.git'
-gem 'bootswatch-rails'
+# gem 'bootswatch-rails'
 gem 'friendly_id', '~> 5.0.0'
 gem 'figaro', github: 'laserlemon/figaro'
+gem 'twitter-bootswatch-rails', '~> 3.1'
+gem 'twitter-bootswatch-rails-helpers', '~> 3.1'
+gem 'twitter-bootswatch-rails-fontawesome'

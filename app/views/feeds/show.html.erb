@@ -7,9 +7,11 @@
         <%= @feed.description %>
         <br/>
         <%= link_to @feed.link, @feed.link  %>
+        <% if current_user && current_user.role == admin %>
          <p class="pull-right">
           <%= link_to 'Edit', edit_feed_path(@feed) %> | <%= link_to 'Delete', feed_path(@feed), method: :delete, confirm: "Are you sure?" %>
         </p>
+        <% end %>
     </section>  
  
         <p>
@@ -23,10 +25,11 @@
               <h3>
               <button href="{{podcast.enclosure.url}}" data-title="{{podcast.title}}" class="play btn btn-primary jp-play" >
                 <i class="icon-white icon-play" ></i> Play</button>
-              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#{{$index}}">
-                {{podcast.title }}
-              </a>
-              <small>{{podcast.itunes_duration.content }}</small>
+                {{podcast.title | limitTo : 50 }}
+              <small><a class="accordion-toggle btn btn-mini btn-default" data-toggle="collapse" data-parent="#accordion2" href="#{{$index}}">
+                info
+              </a></small>
+              <small>on {{podcast.pubDate | date:'mediumDate' }} | {{podcast.itunes_duration.content }}</small>
               </h3>
             </div>
             <div id="{{$index}}" class="accordion-body collapse in">
@@ -124,7 +127,30 @@ $(document).ready(function(){
     
     $('.play').on('click',function(e) {
         e.preventDefault();
-        console.log($(this).attr("href"));
+
+        var url = $(this).attr("href");
+        console.log(url);
+        var feed_id = "<%= @feed.id %>";
+
+        // $.ajax({
+        //   url: "feed/plays"
+        //   type: "POST",
+        //   data: {url: url, feed_id: feed_id},
+        //   dataType: "jsonp"
+        //           }).done(function(data) {
+        //     console.log(data);
+        //   });
+
+        $.ajax({
+          url: "/plays.js",
+          type: "POST",
+          data: {url: url, feed_id: feed_id},
+          dataType: "jsonp"
+        }).done(function(data) {
+            console.log(data);
+            console.log("done");
+          });
+
         $("#jquery_jplayer_1").jPlayer("setMedia", {mp3: $(this).attr("href") }).jPlayer("play");
         $(".jp-title ul li").html($(this).attr("data-title"));
     });

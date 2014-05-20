@@ -10,6 +10,8 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require amelia/loader
+//= require amelia/bootswatch
 //= require angular
 //= require jquery
 //= require jquery_ujs
@@ -17,6 +19,6 @@
 //= require bootstrap
 //= require 'jquery.jplayer'
 //= require google_dfp
-//= require_tree .
+
 
 var podcastApp = angular.module('podcastApp', []);

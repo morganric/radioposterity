@@ -1,8 +1,4 @@
-<% if current_user && current_user.role == 'admin' %>
-<%= link_to 'Add New Feed', new_feed_path, :class => "btn btn-default pull-right" %>
-<% end %>
-
-<h1>Latest</h1>
+<h1>Latest Podcast Feeds</h1>
 
 
 <section class="clearfix row">
@@ -11,21 +7,37 @@
 	<input ng-model="query" placeholder="Search feeds...">
 		<div ng-controller="PodcastListCtrl">
 	     <ul class="feeds">
-	      <li ng-repeat="feed in feeds | filter:query">
+	      <li ng-repeat="feed in feeds | startFrom:currentPage*pageSize | limitTo:pageSize" class="row">
 	      	<h3>
 		      	<a href="/feeds/{{feed.slug}}" data-method="post" class="" >
-		      		<img src="{{feed.image}}" width="50px" class="img-circle" >
+		      		<img src="{{feed.image}}" width="75px" class="img-circle pull-left col-md-2" >
 		      	</a>
 		      	<a href="/feeds/{{feed.slug}}" data-method="post" class="" >
 		      	 {{feed.title }}
-		      	 </a>
+		      	 </a> 
 	      	 </h3>
-	        <p>{{ feed.description }}</p>
-	        <label class="label label-info" >
+
+	        <p>{{ feed.description | limitTo:letterLimit }}</p>
+        	  <label class="label label-success">
+				      	 <i class="icon icon-white icon-info" ></i>
+				      	 <ng-pluralize count="{{ feed.plays }}"
+			                when="{'0': 'No plays yet.',
+			                       'one': '1 play',
+			                       'other': '{} plays'}">
+	      	 </label>
+	        <label class="label label-info pull-right" >
 	        	<a href="/category?category={{feed.category}}" class="" >{{ feed.category }}</a>
         	</label>
 	      </li>
 	    </ul>
+	    <br/>
+	    <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+	        Previous
+	    </button>
+	    {{currentPage+1}}/{{numberOfPages()}}
+	    <button ng-disabled="currentPage >= feeds.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+	        Next
+	    </button>
 	  </div>
 
 	</section>
@@ -39,6 +51,9 @@
 
 </section>
 
+<br/>
+<br/>
+
 
 <script type="text/javascript">
   podcastApp.controller('PodcastListCtrl', function ($scope, $timeout) {
@@ -47,10 +62,27 @@
   console.log(eval('{' + podcasts + '}'));
 
   var data = eval('{' + podcasts + '}');
-  $scope.feeds = data;
   $scope.letterLimit = 100;
+  $scope.currentPage = 0;
+  $scope.pageSize = 5;
+  $scope.feeds = data;
+  $scope.numberOfPages=function(){
+        return Math.ceil($scope.feeds.length/$scope.pageSize);                
+    }
+    for (var i=0; i<45; i++) {
+        $scope.feeds.push("Item "+i);
+    }
 
   });
+
+
+podcastApp.filter('startFrom', function() {
+    return function(input, start) {
+        start = +start; //parse to int
+        return input.slice(start);
+    }
+});
+
 
 
 

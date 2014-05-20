@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @feeds = Feed.all
+    @feeds = Feed.order(plays: :desc)
     @feeds_parsed = []
 
     @feeds.each do |feed|
@@ -12,9 +12,13 @@ class HomeController < ApplicationController
   	@users = User.all
   end
 
-def category
-    @category = params[:category]
-    @feeds = Feed.where(:category => @category)
+  def category
+      @category = params[:category]
+      @feeds = Feed.where(:category => @category)
 
+  end
+
+  def categories
+    @categories = Feed.all.map {|a| a.category}.uniq
   end
 end

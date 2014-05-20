@@ -1,23 +1,15 @@
-// Example using 'Cerulean' bootswatch
-//
-// First import journal variables
-/*@import "bootswatch/journal/variables";*/
+/* Superhero
+ * Bootswatch
+ *= require_self
+ *= require superhero/loader
+ *= require superhero/bootswatch
+  *= require feeds
+*/
 
-// Then bootstrap itself
-/*@import "bootstrap";*/
+main {
+	margin-top: 60px; 
+}
 
-// Bootstrap body padding for fixed navbar
-body { padding-top: 60px; }
-
-// Responsive styles go here in case you want them
-/*@import "bootstrap-responsive";*/
-
-// And finally bootswatch style itself
-/*@import "bootswatch/journal/bootswatch";*/
-
-// Whatever application styles you have go last
-/*@import "base";*/
-@import "feeds";
 
 #leaderboard div.google-dfp, .mpu {
 	margin: 5px auto;

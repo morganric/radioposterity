@@ -1,23 +1,12 @@
-// Example using 'Cerulean' bootswatch
-//
-// First import journal variables
-/*@import "bootswatch/journal/variables";*/
+/* Amelia
+ * Bootswatch
+ *= require_self
+ *= require framework_and_overrides
+ *= require amelia/loader
+ *= require amelia/bootswatch
+ *= require feeds
+*/
 
-// Then bootstrap itself
-/*@import "bootstrap";*/
-
-// Bootstrap body padding for fixed navbar
-body { padding-top: 60px; }
-
-// Responsive styles go here in case you want them
-/*@import "bootstrap-responsive";*/
-
-// And finally bootswatch style itself
-/*@import "bootswatch/journal/bootswatch";*/
-
-// Whatever application styles you have go last
-/*@import "base";*/
-@import "feeds";
 
 #leaderboard div.google-dfp, .mpu {
 	margin: 5px auto;

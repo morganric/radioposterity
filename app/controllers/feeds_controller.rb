@@ -84,6 +84,6 @@ class FeedsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def feed_params
-      params.require(:feed).permit(:url, :user_id, :title, :description, :category, :link, :email, :image)
+      params.require(:feed).permit(:url, :user_id, :title, :description, :category, :link, :email, :image, :plays)
     end
 end

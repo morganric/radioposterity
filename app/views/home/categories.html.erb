@@ -1,0 +1,9 @@
+<h1>Categories</h1>
+
+<ul>
+	<% @categories.each do |cat| %>
+		<li class="row">
+			<h3><%= link_to cat, "/category?category=#{cat}" %></h3>
+		</li>
+	<% end %>
+</ul>
