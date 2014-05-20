@@ -19,6 +19,10 @@ body { padding-top: 60px; }
 /*@import "base";*/
 @import "feeds";
 
+.navbar-brand {
+	color: white !important;
+}
+
 #leaderboard div.google-dfp, .mpu {
 	margin: 5px auto;
 }

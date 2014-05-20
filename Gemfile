@@ -40,6 +40,7 @@ gem "less-rails"
 gem 'angularjs-rails'
 gem 'json'
 gem 'debugger'
+gem 'debugger-ruby_core_source'
 gem 'jplayer-rails'
 gem 'google_dfp', :git => 'git://github.com/digineo/google_dfp.git'
 # gem 'bootswatch-rails'
