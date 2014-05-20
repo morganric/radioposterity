@@ -45,7 +45,7 @@ gem 'jplayer-rails'
 gem 'google_dfp', :git => 'git://github.com/digineo/google_dfp.git'
 # gem 'bootswatch-rails'
 gem 'friendly_id', '~> 5.0.0'
-gem 'figaro', github: 'laserlemon/figaro'
+gem 'figaro', github: 'laserlemon/figaro', ref: "9bbc7343f3916e73c185d071608e5ef24e9638d0"
 gem 'twitter-bootswatch-rails', '~> 3.1'
 gem 'twitter-bootswatch-rails-helpers', '~> 3.1'
 gem 'twitter-bootswatch-rails-fontawesome'
