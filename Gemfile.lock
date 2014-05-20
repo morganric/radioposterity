@@ -6,14 +6,6 @@ GIT
       json
       rails
 
-GIT
-  remote: git://github.com/laserlemon/figaro.git
-  revision: bc876a048fefdffa56c935249b4b034f196b9760
-  specs:
-    figaro (1.0.0.rc1)
-      rails (>= 3, < 5)
-      thor (~> 0.14)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -87,6 +79,9 @@ GEM
     eventmachine (1.0.3)
     execjs (2.0.2)
     ffi (1.9.3)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     formatador (0.2.4)
     friendly_id (5.0.3)
       activerecord (>= 4.0.0)
@@ -245,7 +240,7 @@ DEPENDENCIES
   debugger-ruby_core_source
   devise
   devise_invitable
-  figaro!
+  figaro
   friendly_id (~> 5.0.0)
   google_dfp!
   guard-bundler
